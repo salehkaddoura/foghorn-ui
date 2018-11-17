@@ -1,0 +1,39 @@
+@import "login"
+
+*
+  box-sizing: border-box;
+
+html, body
+  height: 100%;
+  position: relative;
+
+body 
+  background: url('/assets/images/linedpaper.png') repeat;
+
+.navbar_title
+  margin-left: 20px;
+
+.navbar_logo
+  margin-left: 10px;
+
+.users-container, .gists-container
+  max-height: 500px;
+  overflow-y: scroll;
+
+.media+.media
+  padding-top: 0;
+
+.media
+  align-items: center;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+
+.users-container .media
+  cursor: pointer;
+
+  &:hover
+    transform: scale(1.1);
+
+.gist-form-wrapper 
+  .input, .textarea
+    margin-bottom: 1rem;

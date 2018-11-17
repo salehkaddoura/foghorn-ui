@@ -1,0 +1,48 @@
+<div class="columns is-mobile is-centered"> 
+  <div class="column is-one-third">
+    <h1 class="title">Search for a Github user:</h1>
+  </div>
+</div>
+<div class="columns is-mobile is-centered">
+  <div class="column is-one-third">
+    <div class="field">
+      <div class="control has-icons-left has-icons-right">
+        <input class="input" 
+          type="text" 
+          placeholder="Username" 
+          ng-change="coreCtrl.getUsers(coreCtrl.username)"
+          ng-model="coreCtrl.username"
+          ng-model-options="{ debounce: 350 }">
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="columns is-mobile is-centered">
+  <div class="column is-one-third users-container">
+    <article ng-repeat="user in coreCtrl.users track by $index" 
+      class="media has-background-light"
+      ui-sref="user({ username: user.login })">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <img ng-src="{{user.avatar_url}}">
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>{{user.login}}</strong>
+          </p>
+        </div>
+      </div>  
+    </article>
+  </div>
+</div>  
+
+
+
+
+

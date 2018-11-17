@@ -1,0 +1,66 @@
+<div class="columns is-mobile is-centered">
+  <div class="column is-one-third">
+    <article class="media has-background-light">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <img ng-src="{{userCtrl.user.avatar_url}}">
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>{{userCtrl.user.login}}</strong>
+          </p>
+        </div>
+      </div>  
+    </article>
+  </div>
+</div>
+
+<form name="gistForm" ng-submit="userCtrl.createGist(userCtrl.gist)">
+  <div class="columns is-mobile is-centered">
+    <div class="column is-one-third gist-form-wrapper">
+      <p class="is-size-5">Create new Gist:</p>
+      <input class="input" 
+        type="text" 
+        placeholder="Gist description"
+        ng-model="userCtrl.gist.description">
+      <input class="input" 
+        type="text" 
+        placeholder="Filename including extension"
+        ng-model="userCtrl.gist.filename">
+      <textarea class="textarea" 
+        placeholder="e.g. Hello world"
+        ng-model="userCtrl.gist.content"></textarea>
+    
+      <button class="button is-primary"
+        type="submit">
+        Create Gist   
+      </button>
+    </div>
+  </div>
+</form>
+
+
+<div class="columns is-mobile is-centered">
+  <div class="column is-one-third">
+    <p class="is-size-5">User Gists:</p>
+    <div class="gists-container">
+      <article ng-repeat="gist in userCtrl.gists track by $index" 
+        class="media has-background-light">
+          <figure class="media-left">
+            <p class="image is-64x64">
+              <img ng-src="{{gist.owner.avatar_url}}">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <a href="{{gist.html_url}}">{{gist.description || 'No Description'}}</a>
+              </p>
+            </div>
+          </div>
+      </article>
+    </div>
+  </div>
+</div>

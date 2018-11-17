@@ -1,0 +1,25 @@
+{
+  "name": "applydeo",
+  "version": "1.0.0",
+  "description": "applydeo-client",
+  "main": "server.js",
+  "scripts": {
+    "build-css": "node-sass --include-path sass --output-style compressed sass/main.sass dist/css/main.css",
+    "watch-css": "nodemon -e sass -x \"npm run build-css\"",
+    "watch-js": "nodemon --watch public -x \"npm run build-js\"",
+    "build-js": "uglifyjs public/app/*.js public/app/**/*.js -o dist/scripts/applydeo.min.js --compress",
+    "watch-server": "nodemon server.js",
+    "watch": "npm run watch-js & npm run watch-server & npm run watch-css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Saleh Kaddoura",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.18.4",
+    "uglify-js": "^3.0.15"
+  }
+}
